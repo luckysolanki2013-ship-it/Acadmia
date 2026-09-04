@@ -1,0 +1,2059 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AcademiaX &mdash; Upgrade Your Career From Anywhere</title>
+<meta name="description" content="Industry-recognised online degree and certificate programs from 10+ leading institutions, built for working professionals.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --navy:#205589; --deep:#113E99; --orange:#FE9900; --pale:#CCDDE4;
+    --bg:#EDF2F5; --ink:#16222E; --sub:#51677D; --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); font-family:'IBM Plex Sans',system-ui,sans-serif; color:var(--ink); overflow-x:hidden;}
+  a{color:var(--navy); text-decoration:none;}
+  a:hover{color:var(--deep);}
+  h1,h2,h3,h4{font-family:'Space Grotesk',system-ui,sans-serif; margin:0; text-wrap:pretty;}
+  p{margin:0;}
+  input,select{font-family:'IBM Plex Sans',sans-serif;}
+  button{font-family:'IBM Plex Sans',sans-serif;}
+  .nav-links{display:flex; gap:32px;}
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .steps-row{display:grid; grid-template-columns:repeat(4,1fr); gap:0px;}
+  .inst-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+  .stats-row{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px;}
+  .hero-row{display:grid; grid-template-columns:1fr 0.86fr; gap:56px; align-items:flex-start;}
+  .cat-tiles{display:grid; grid-template-columns:repeat(5,1fr); gap:14px;}
+  .course-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .sticky-mobile-cta{display:none;}
+  .hero-photo-row{}
+  .marquee-wrap{overflow:hidden; width:100%; mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);}
+  .marquee-track{display:flex; gap:52px; width:max-content; align-items:center; animation:marquee-scroll 26s linear infinite;}
+  @keyframes marquee-scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+  .badge-navy{background:#E7EEF5; color:var(--navy); font-size:11px; font-weight:700; padding:5px 10px; border-radius:999px;}
+  .pill{background:var(--bg); font-size:11px; color:var(--sub); padding:4px 10px; border-radius:999px;}
+  .btn-outline-navy{flex:1; min-width:100px; background:transparent; border:1px solid var(--navy); color:var(--navy); font-weight:600; font-size:12.5px; padding:10px 12px; border-radius:8px; cursor:pointer;}
+  .btn-outline-sub{flex:1; min-width:100px; background:transparent; border:1px solid var(--pale); color:var(--sub); font-weight:600; font-size:12.5px; padding:10px 12px; border-radius:8px; cursor:pointer;}
+  .btn-orange{flex:1; min-width:100px; background:var(--orange); border:none; color:var(--white); font-weight:600; font-size:12.5px; padding:10px 12px; border-radius:8px; cursor:pointer;}
+  .course-card{background:var(--white); border-radius:16px; padding:22px; border:1px solid var(--pale); display:flex; flex-direction:column; gap:12px;}
+  .course-card[hidden]{display:none;}
+  .course-details{border-top:1px solid var(--pale); margin-top:6px; padding-top:14px; display:flex; flex-direction:column; gap:10px;}
+  .detail-label{font-size:11.5px; font-weight:700; color:var(--ink);}
+  .detail-text{font-size:12px; color:var(--sub); line-height:1.5;}
+  .cat-tile{cursor:pointer; background:var(--white); border:1.5px solid var(--pale); border-radius:14px; padding:16px 14px; display:flex; flex-direction:column; gap:8px; align-items:flex-start;}
+  .cat-tile.active{background:var(--navy); border-color:var(--navy);}
+  .cat-tile-label{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink);}
+  .cat-tile.active .cat-tile-label{color:var(--white);}
+  .cat-tile-count{font-size:11.5px; color:var(--sub);}
+  .cat-tile.active .cat-tile-count{color:#C7D6E8;}
+  .inst-card{background:rgba(8,20,48,0.68); border:1px solid rgba(255,255,255,0.26); border-radius:14px; padding:18px 14px; text-align:center; display:flex; align-items:center; justify-content:center; min-height:64px; backdrop-filter:blur(3px);}
+  .faq-item{border-bottom:1px solid var(--pale); padding:20px 0;}
+  .faq-q{display:flex; align-items:center; justify-content:space-between; cursor:pointer; gap:20px;}
+  .faq-icon{min-width:26px; height:26px; border-radius:50%; background:var(--pale); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .faq-icon .icon-minus{display:none;}
+  .faq-item.open .faq-icon .icon-plus{display:none;}
+  .faq-item.open .faq-icon .icon-minus{display:block;}
+  .faq-a{display:none; font-size:13.5px; color:var(--sub); line-height:1.6; margin-top:14px; max-width:680px;}
+  .faq-item.open .faq-a{display:block;}
+  .no-courses{text-align:center; padding:40px; background:var(--white); border-radius:16px; border:1px dashed var(--pale);}
+  .no-courses[hidden]{display:none;}
+  .field{padding:12px 14px; border:1px solid var(--pale); border-radius:9px; font-size:14px; background:var(--bg); width:100%;}
+  select.field{color:var(--sub);}
+  .form-note{font-size:11px; color:var(--sub);}
+  @media (max-width:1100px){
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .inst-grid{grid-template-columns:repeat(3,1fr);}
+    .stats-row{grid-template-columns:repeat(2,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .steps-row{grid-template-columns:repeat(2,1fr); row-gap:32px;}
+    .hero-row{grid-template-columns:1fr;}
+    .hero-photo-row{grid-template-columns:1fr !important; min-height:0 !important;}
+    .hero-photo-row > div:first-child{padding:64px 32px 40px 32px !important;}
+    .hero-photo-row > div:last-child{height:340px;}
+    .nav-links{display:none;}
+    .cat-tiles{grid-template-columns:repeat(3,1fr);}
+    .course-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:640px){
+    .why-grid{grid-template-columns:1fr;}
+    .inst-grid{grid-template-columns:repeat(2,1fr);}
+    .stats-row{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .steps-row{grid-template-columns:1fr;}
+    .cat-tiles{grid-template-columns:repeat(2,1fr);}
+    .course-grid{grid-template-columns:1fr;}
+    .form-grid{grid-template-columns:1fr;}
+    .sticky-mobile-cta{display:flex;}
+    body{padding-bottom:64px;}
+    .hero-photo-row h1{font-size:34px !important;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <div style="position:sticky; top:0; z-index:40; background:rgba(237,242,245,0.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--pale);">
+    <div style="max-width:1240px; margin:0 auto; padding:18px 40px; display:flex; align-items:center; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="assets/mark-navy.png" alt="AcademiaX mark" style="height:30px; width:auto; display:block;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; letter-spacing:-0.01em; color:var(--navy);">Academia<span style="color:var(--orange);">X</span></span>
+      </div>
+      <div class="nav-links" style="font-size:15px; font-weight:500; color:var(--ink);">
+        <a href="#courses" style="color:var(--ink);">Programs</a>
+        <a href="#why" style="color:var(--ink);">Why Us</a>
+        <a href="#universities" style="color:var(--ink);">Universities</a>
+        <a href="#faq" style="color:var(--ink);">FAQ</a>
+      </div>
+      <a href="#lead-form" style="background:var(--orange); color:var(--white); font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:14.5px; padding:11px 24px; border-radius:8px;">Apply Now</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="position:relative; background:var(--white); overflow:hidden;">
+    <div style="position:absolute; top:0; left:0; width:0; height:0; border-style:solid; border-width:96px 96px 0 0; border-color:var(--navy) transparent transparent transparent; z-index:3;"></div>
+    <svg width="70" height="46" style="position:absolute; top:20px; right:280px; z-index:3;" aria-hidden="true">
+      <g fill="#B9C7D6">
+        <circle cx="4" cy="4" r="2.4"/><circle cx="18" cy="4" r="2.4"/><circle cx="32" cy="4" r="2.4"/><circle cx="46" cy="4" r="2.4"/><circle cx="60" cy="4" r="2.4"/>
+        <circle cx="4" cy="18" r="2.4"/><circle cx="18" cy="18" r="2.4"/><circle cx="32" cy="18" r="2.4"/><circle cx="46" cy="18" r="2.4"/><circle cx="60" cy="18" r="2.4"/>
+        <circle cx="4" cy="32" r="2.4"/><circle cx="18" cy="32" r="2.4"/><circle cx="32" cy="32" r="2.4"/><circle cx="46" cy="32" r="2.4"/><circle cx="60" cy="32" r="2.4"/>
+      </g>
+    </svg>
+
+    <div class="hero-photo-row" style="max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1.08fr 1fr; align-items:stretch; min-height:600px; position:relative;">
+      <div style="padding:100px 48px 100px 88px; display:flex; flex-direction:column; justify-content:center; gap:22px; position:relative; z-index:2;">
+        <h1 style="font-size:48px; line-height:1.12; font-weight:700;">
+          <span style="color:var(--navy);">Upgrade Your Career</span><br>
+          <span style="color:var(--orange);">From Anywhere</span>
+        </h1>
+        <div style="width:56px; height:3px; background:var(--orange);"></div>
+        <p style="font-size:16.5px; line-height:1.6; color:var(--sub); max-width:460px;">Industry-recognised online programs &mdash; MBA, DBA, AI, Data Science, Digital Marketing and Leadership &mdash; from 10+ leading institutions, built for working professionals.</p>
+
+        <div style="display:flex; align-items:flex-start; gap:0; margin-top:10px; flex-wrap:wrap;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px 0 0; text-align:center; width:120px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l11 6-11 6-11-6 11-6z" stroke="#205589" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 13v6c0 2 3 4 7 4s7-2 7-4v-6" stroke="#205589" stroke-width="1.7"/></svg>
+            <span style="font-size:12.5px; color:var(--ink); font-weight:500; line-height:1.35;">Top Ranked Universities</span>
+          </div>
+          <div style="width:1px; background:var(--pale); align-self:stretch;"></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px; text-align:center; width:120px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="5" width="22" height="15" rx="2" stroke="#205589" stroke-width="1.7"/><circle cx="14" cy="11" r="2.6" stroke="#205589" stroke-width="1.5"/><path d="M9 17c0-2.5 2.2-4 5-4s5 1.5 5 4" stroke="#205589" stroke-width="1.5"/><path d="M10 25h8M14 20v5" stroke="#205589" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span style="font-size:12.5px; color:var(--ink); font-weight:500; line-height:1.35;">100% Online Learning</span>
+          </div>
+          <div style="width:1px; background:var(--pale); align-self:stretch;"></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px; text-align:center; width:120px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="18" rx="2" stroke="#205589" stroke-width="1.7"/><path d="M4 11h20M9 4v4M19 4v4" stroke="#205589" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="17" r="1.4" fill="#205589"/><circle cx="14" cy="17" r="1.4" fill="#205589"/></svg>
+            <span style="font-size:12.5px; color:var(--ink); font-weight:500; line-height:1.35;">Flexible Schedule</span>
+          </div>
+          <div style="width:1px; background:var(--pale); align-self:stretch;"></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 0 0 20px; text-align:center; width:120px;">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M9 3h10l3 3v16a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="#205589" stroke-width="1.7" stroke-linejoin="round"/><circle cx="14" cy="15" r="3.4" stroke="#205589" stroke-width="1.5"/><path d="M12 18l-1.5 4 3.5-1.5 3.5 1.5-1.5-4" stroke="#205589" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span style="font-size:12.5px; color:var(--ink); font-weight:500; line-height:1.35;">Industry Relevant</span>
+          </div>
+        </div>
+
+        <a href="#courses" style="background:var(--orange); color:var(--white); font-weight:600; font-size:15px; padding:14px 26px; border-radius:999px; display:inline-flex; align-items:center; gap:8px; width:fit-content; margin-top:8px;">Explore Programs <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+
+      <div style="position:relative; overflow:hidden;">
+        <svg width="0" height="0" style="position:absolute;">
+          <clipPath id="heroPhotoClip" clipPathUnits="objectBoundingBox">
+            <path d="M0.16,0 C0.05,0.16 0,0.34 0.05,0.48 C0.11,0.64 0.03,0.78 0.09,0.88 C0.12,0.94 0.1,0.97 0.08,1 L1,1 L1,0 Z"/>
+          </clipPath>
+        </svg>
+        <div style="position:absolute; top:0; left:-16px; width:100%; height:100%; background:var(--navy); clip-path:url(#heroPhotoClip); z-index:1;"></div>
+        <img src="assets/hero-photo.jpg" alt="Working professional studying online" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; clip-path:url(#heroPhotoClip); z-index:2;">
+        <svg width="120" height="140" viewBox="0 0 120 140" style="position:absolute; top:30px; right:60px; z-index:3;" aria-hidden="true">
+          <path d="M10,140 C60,100 90,50 70,0" stroke="var(--orange)" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+    </div>
+
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block; width:100%; height:36px; position:relative; z-index:2;"><path d="M0,0 C400,50 1040,50 1440,0 L1440,60 L0,60 Z" fill="#EDF2F5"/></svg>
+  </div>
+
+  <!-- DIRECT FORM -->
+  <div style="max-width:1240px; margin:0 auto; padding:44px 40px 60px 40px;">
+    <form id="lead-form" name="lead-form" method="POST" style="background:var(--white); border-radius:20px; padding:30px 34px; box-shadow:0 20px 50px rgba(17,62,153,0.14); display:flex; align-items:center; gap:32px; flex-wrap:wrap; position:relative;">
+      <div style="position:absolute; top:-14px; left:34px; background:var(--orange); color:var(--white); font-size:11.5px; font-weight:700; padding:6px 14px; border-radius:999px; letter-spacing:0.04em;"><span style="text-decoration:line-through; opacity:0.7; font-weight:600; margin-right:6px;">&#8377;5,000/-</span>FREE COUNSELLING</div>
+      <div style="flex:0 1 260px; display:flex; flex-direction:column; gap:4px;">
+        <h3 style="font-size:19px; font-weight:700;">Get Program Details &amp; Counselling</h3>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A counsellor will reach out within one business day.</p>
+      </div>
+      <div style="flex:1 1 520px; display:flex; flex-direction:column; gap:12px;">
+        <div class="form-grid">
+          <input class="field" type="text" name="fullName" placeholder="Full Name *" required>
+          <input class="field" type="tel" name="mobile" placeholder="Mobile Number *" required>
+          <input class="field" type="email" name="email" placeholder="Email Address *" required>
+          <input class="field" type="text" name="city" placeholder="City *" required>
+          <select class="field" name="qualification" required>
+            <option value="" disabled selected>Highest Qualification *</option>
+            <option>Bachelor&rsquo;s Degree</option>
+            <option>Master&rsquo;s Degree</option>
+            <option>Doctorate / PhD</option>
+            <option>Other</option>
+          </select>
+          <select class="field" name="experience" required>
+            <option value="" disabled selected>Work Experience *</option>
+            <option>0&ndash;2 years</option>
+            <option>3&ndash;5 years</option>
+            <option>6&ndash;10 years</option>
+            <option>10+ years</option>
+          </select>
+          <select class="field" name="program" required>
+            <option value="" disabled selected>Interested Program *</option>
+            <option>Doctorate</option>
+            <option>Master&rsquo;s</option>
+            <option>AI &amp; Technology</option>
+            <option>Marketing</option>
+          </select>
+          <select class="field" name="learningMode">
+            <option value="" disabled selected>Preferred Learning Mode</option>
+            <option>Online</option>
+            <option>Offline</option>
+            <option>Any</option>
+          </select>
+        </div>
+        <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+          <button class="btn-orange" type="submit" style="flex:none; background:var(--orange); color:var(--white); border:none; font-weight:600; font-size:14.5px; padding:13px 26px; border-radius:9px; cursor:pointer;">Get Program Details &amp; Counselling</button>
+          <a href="#courses" style="font-size:12.5px; color:var(--sub);">or browse all programs first &darr;</a>
+        </div>
+        <div class="form-note">Submissions are collected via Google Forms &mdash; see setup notes in the project README.</div>
+      </div>
+    </form>
+  </div>
+
+  <!-- STATS BAND -->
+  <div style="background:linear-gradient(120deg, var(--navy), var(--deep)); padding:40px 40px;">
+    <div class="stats-row" style="max-width:1160px; margin:0 auto;">
+      <div style="display:flex; flex-direction:column; gap:4px; align-items:center; text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">15K+</div>
+        <div style="font-size:13px; color:#C7D6E8;">Professionals Enrolled</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px; align-items:center; text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">50+</div>
+        <div style="font-size:13px; color:#C7D6E8;">Certification Courses</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px; align-items:center; text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">20+</div>
+        <div style="font-size:13px; color:#C7D6E8;">Leading Institutions</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px; align-items:center; text-align:center;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">1:1</div>
+        <div style="font-size:13px; color:#C7D6E8;">Personalised Counselling</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UNIVERSITY ACCREDITATIONS MARQUEE -->
+  <div style="background:var(--white); border-bottom:1px solid var(--pale); padding:22px 0;">
+    <div style="text-align:center; font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--sub); margin-bottom:14px;">OUR PARTNER UNIVERSITIES</div>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <img src="assets/logo-goldengate.png" alt="Golden Gate University" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-rushford.png" alt="Rushford Business School" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-ssbm.png" alt="SSBM Geneva" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-esgci.png" alt="ESGCI" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-edgewood.png" alt="Edgewood University" style="height:34px; width:auto; display:block;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--navy); white-space:nowrap;">Liverpool Business School</div>
+        <img src="assets/logo-iiitb.png" alt="IIIT Bangalore" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-iimk.png" alt="IIM Kozhikode" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-ljmu.png" alt="Liverpool John Moores University" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-mica.png" alt="MICA" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-goldengate.png" alt="Golden Gate University" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-rushford.png" alt="Rushford Business School" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-ssbm.png" alt="SSBM Geneva" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-esgci.png" alt="ESGCI" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-edgewood.png" alt="Edgewood University" style="height:34px; width:auto; display:block;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--navy); white-space:nowrap;">Liverpool Business School</div>
+        <img src="assets/logo-iiitb.png" alt="IIIT Bangalore" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-iimk.png" alt="IIM Kozhikode" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-ljmu.png" alt="Liverpool John Moores University" style="height:34px; width:auto; display:block;">
+        <img src="assets/logo-mica.png" alt="MICA" style="height:34px; width:auto; display:block;">
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAM CATEGORIES (also the course filter) -->
+  <div id="programs" style="max-width:1240px; margin:0 auto; padding:80px 40px 44px 40px;">
+    <div class="hero-row" style="margin-bottom:36px; align-items:center; gap:40px;">
+      <div style="display:flex; flex-direction:column; gap:14px; align-items:flex-start;">
+        <div style="color:var(--orange); font-size:13px; font-weight:700; letter-spacing:0.08em;">PROGRAMS</div>
+        <h2 style="font-size:32px; font-weight:700; color:var(--ink);">Find the right program for your goals</h2>
+        <p style="font-size:15px; color:var(--sub); max-width:480px;">Filter by career direction to see matching programs below.</p>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:center;">
+        <img src="assets/photo-graduation.jpg" alt="Graduate holding a certificate" style="width:100%; max-width:280px; height:294px; object-fit:cover; object-position:top; border-radius:16px; display:block; box-shadow:0 16px 40px rgba(17,62,153,0.14);">
+      </div>
+    </div>
+    <div class="cat-tiles" id="cat-tiles">
+        <div class="cat-tile active" data-cat="All">
+          <div class="cat-tile-label">All Programs</div>
+          <div class="cat-tile-count">30 programs</div>
+        </div>
+        <div class="cat-tile" data-cat="Doctorate">
+          <div class="cat-tile-label">Doctorate</div>
+          <div class="cat-tile-count">15 programs</div>
+        </div>
+        <div class="cat-tile" data-cat="Master's">
+          <div class="cat-tile-label">Master's</div>
+          <div class="cat-tile-count">4 programs</div>
+        </div>
+        <div class="cat-tile" data-cat="AI &amp; Technology">
+          <div class="cat-tile-label">AI &amp; Technology</div>
+          <div class="cat-tile-count">8 programs</div>
+        </div>
+        <div class="cat-tile" data-cat="Marketing">
+          <div class="cat-tile-label">Marketing</div>
+          <div class="cat-tile-count">2 programs</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- ALL COURSES -->
+  <div id="courses" style="max-width:1240px; margin:0 auto; padding:12px 40px 88px 40px;">
+    <div class="course-grid" id="course-grid">
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">27 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctor of Business Administration</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Golden Gate University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 27 Months Doctorate program delivered by Golden Gate University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Master's or Bachelor's + 5 years work experience</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Master's or Bachelor's + 5 years work experience.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">36 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctor of Business Administration</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Rushford University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 36 Months Doctorate program delivered by Rushford University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Master's or Bachelor's + 3 years work experience</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Master's or Bachelor's + 3 years work experience.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Rushford University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">24 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctor of Business Administration</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">ESGCI</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 24 Months Doctorate program delivered by ESGCI.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Master's or Bachelor's + 3 years work experience</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Master's or Bachelor's + 3 years work experience.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by ESGCI on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">36 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctor of Business Administration</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">SSBM</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 36 Months Doctorate program delivered by SSBM.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's + 5 years experience or Master's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's + 5 years experience or Master's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by SSBM on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">24 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctor of Business Administration</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Edgewood University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 24 Months Doctorate program delivered by Edgewood University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Master's Degree</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Master's Degree.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Edgewood University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">30 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">MBA + DBA</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Edgewood University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 30 Months Doctorate program delivered by Edgewood University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's Degree</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's Degree.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Edgewood University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="HR">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">HR</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">6 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Professional Certificate Programme in HR Management and Analytics</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIM Kozhikode</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 6 Months HR program delivered by IIM Kozhikode.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's + minimum 3 years work experience</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">HR</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's + minimum 3 years work experience.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Ask your counsellor for outcomes specific to this program.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIM Kozhikode on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="AI &amp; Technology">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">AI &amp; Technology</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">6 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Professional Certificate Programme in Data Science with Generative AI</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIIT Bangalore</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 6 Months AI &amp; Technology program delivered by IIIT Bangalore.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's or Master's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">AI &amp; Technology</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="AI &amp; Technology">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">AI &amp; Technology</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">6 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Executive PG Certificate Programme in Data Science &amp; AI</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIIT Bangalore</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 6 Months AI &amp; Technology program delivered by IIIT Bangalore.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's or Master's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">AI &amp; Technology</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="AI &amp; Technology">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">AI &amp; Technology</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">6 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Executive PG Certificate in Generative AI &amp; Agentic AI</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIT Kharagpur</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 6 Months AI &amp; Technology program delivered by IIT Kharagpur.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's or Master's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">AI &amp; Technology</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIT Kharagpur on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Marketing">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Marketing</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">4 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Advanced Certificate in Digital Marketing &amp; Communication</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">MICA</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 4 Months Marketing program delivered by MICA.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Marketing</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Digital Marketing, Brand Strategy and Communication roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by MICA on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Marketing">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Marketing</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">7 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Advanced Certificate in Digital Brand Communication Strategy</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">MICA</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 7 Months Marketing program delivered by MICA.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Marketing</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Digital Marketing, Brand Strategy and Communication roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by MICA on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="AI &amp; Technology">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">AI &amp; Technology</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">5 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Executive Programme in Generative AI for Leaders</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIIT Bangalore</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 5 Months AI &amp; Technology program delivered by IIIT Bangalore.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's/Master's + minimum 4 years experience</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">AI &amp; Technology</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's/Master's + minimum 4 years experience.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="AI &amp; Technology">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">AI &amp; Technology</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">30 Weeks</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Executive PG Programme in Applied AI and Agentic AI</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIIT Bangalore</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 30 Weeks AI &amp; Technology program delivered by IIIT Bangalore.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's or Master's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">AI &amp; Technology</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="AI &amp; Technology">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">AI &amp; Technology</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">6 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Chief Technology Officer &amp; AI Leadership Programme</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIIT Bangalore</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 6 Months AI &amp; Technology program delivered by IIIT Bangalore.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's/Master's + minimum 8 years experience</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">AI &amp; Technology</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's/Master's + minimum 8 years experience.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Master's">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Master's</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">13 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Master of Business Administration</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Golden Gate University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 13 Months Master's program delivered by Golden Gate University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Master's</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Master's">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Master's</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">18 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Master of Business Administration</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Liverpool Business School</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 18 Months Master's program delivered by Liverpool Business School.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Master's</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Liverpool Business School on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Master's">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Master's</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">18 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">M.Sc. Data Science</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">LJMU + IIIT Bangalore</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 18 Months Master's program delivered by LJMU + IIIT Bangalore.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Master's</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by LJMU + IIIT Bangalore on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Master's">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Master's</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">18 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">M.Sc. Machine Learning &amp; AI</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">LJMU + IIIT Bangalore</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 18 Months Master's program delivered by LJMU + IIIT Bangalore.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Master's</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by LJMU + IIIT Bangalore on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="AI &amp; Technology">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">AI &amp; Technology</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">18 Months</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Executive Diploma in Machine Learning &amp; AI</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIIT Bangalore</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 18 Months AI &amp; Technology program delivered by IIIT Bangalore.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's or Master's</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">AI &amp; Technology</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctorate of Business Administration</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Rushford Business School</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by Rushford Business School.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Rushford Business School on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctorate of Business Administration (DBA)</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">ESGCI, Paris</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by ESGCI, Paris.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by ESGCI, Paris on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="AI &amp; Technology">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">AI &amp; Technology</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Chief Technology Officer &amp; AI Leadership Programme</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIT-B &amp; IIM Udaipur</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request AI &amp; Technology program delivered by IIT-B &amp; IIM Udaipur.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">AI &amp; Technology</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by IIT-B &amp; IIM Udaipur on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctor of Business Administration (DBA)</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Golden Gate University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by Golden Gate University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctorate in Business Administration by Edgewood University</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Edgewood University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by Edgewood University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Edgewood University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Global Doctor of Business Administration from SSBM</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Swiss School of Business and Management (SSBM), Geneva</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by Swiss School of Business and Management (SSBM), Geneva.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Swiss School of Business and Management (SSBM), Geneva on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Doctor of Technology in Applied &amp; Agentic AI</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Golden Gate University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by Golden Gate University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">DBA in Emerging Technologies with a concentration in Generative and Agentic AI</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Golden Gate University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by Golden Gate University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Edgewood MBA &amp; DBA</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Edgewood University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by Edgewood University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Edgewood University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+      <div class="course-card" data-category="Doctorate">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+          <div class="badge-navy">Doctorate</div>
+          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">Details on request</div>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Master + Doctor of Business Administration (MBA+DBA)</div>
+        <div style="font-size:13px; color:var(--navy); font-weight:600;">Golden Gate University</div>
+        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A Details on request Doctorate program delivered by Golden Gate University.</p>
+        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Ask your counsellor for eligibility criteria</div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <div class="pill">Doctorate</div>
+          <div class="pill">Certificate on completion</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
+          <button class="btn-outline-navy" type="button">Get Brochure</button>
+          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
+          <button class="btn-orange" type="button">Apply Now</button>
+        </div>
+        <div class="course-details" hidden>
+          <div class="course-detail-row">
+            <div class="detail-label">Who It&rsquo;s For</div>
+            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Learning Format</div>
+            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Career Outcomes</div>
+            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Certification</div>
+            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Fee &amp; Financing</div>
+            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
+          </div>
+          <div class="course-detail-row">
+            <div class="detail-label">Admission Process</div>
+            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="no-courses" id="no-courses" hidden>
+      <p style="font-size:14px; color:var(--sub);">New programs in this track are being added. Ask your counsellor for current options.</p>
+    </div>
+  </div>
+
+  <!-- REPEAT CTA -->
+  <div style="position:relative; background:linear-gradient(100deg, var(--navy), var(--deep));">
+    <div style="max-width:1240px; margin:0 auto; padding:34px 40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div style="color:var(--orange); font-size:12px; font-weight:700; letter-spacing:0.08em; margin-bottom:6px;">FLEXIBLE LEARNING</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; color:var(--white);">Not sure which program fits? A counsellor can help in one call.</div>
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
+        <a href="#lead-form" style="background:var(--orange); color:var(--white); font-weight:600; font-size:13.5px; padding:13px 24px; border-radius:8px; white-space:nowrap;">Get Free Counselling</a>
+        <div style="font-size:11px; color:#C7D6E8;"><span style="text-decoration:line-through; opacity:0.75;">&#8377;5,000/-</span> today it&rsquo;s free</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PARTNER INSTITUTIONS -->
+  <div id="universities" style="position:relative; overflow:hidden; padding:80px 40px;">
+    <img src="assets/photo-campus.jpg" alt="" style="position:absolute; inset:-2px; width:calc(100% + 4px); height:calc(100% + 4px); object-fit:cover; z-index:0;">
+    <div style="position:absolute; inset:-2px; background:linear-gradient(100deg, rgba(10,25,60,0.80) 0%, rgba(10,25,60,0.40) 55%, rgba(10,25,60,0.55) 100%); z-index:1;"></div>
+    <div style="position:relative; z-index:2; max-width:1240px; margin:0 auto;">
+      <div style="display:flex; flex-direction:column; gap:14px; align-items:flex-start; margin-bottom:40px;">
+        <div style="color:#FFC069; font-size:13px; font-weight:700; letter-spacing:0.08em;">UNIVERSITIES</div>
+        <h2 style="font-size:32px; font-weight:700; color:var(--white); max-width:640px;">Learn from 10+ leading institutions worldwide</h2>
+      </div>
+      <div class="inst-grid">
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">Golden Gate University</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">Rushford Business School</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">SSBM Geneva</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">ESGCI</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">Edgewood University</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">Liverpool Business School</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">IIIT Bangalore</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">IIM Kozhikode</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">Liverpool John Moores University</div>
+        </div>
+        <div class="inst-card">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">MICA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY CHOOSE US -->
+  <div id="why" style="background:var(--bg); padding:88px 40px;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div class="hero-row" style="margin-bottom:44px; align-items:center; gap:40px;">
+        <div style="display:flex; flex-direction:column; gap:14px; align-items:flex-start;">
+          <div style="color:var(--deep); font-size:13px; font-weight:700; letter-spacing:0.08em;">WHY CHOOSE US</div>
+          <h2 style="font-size:34px; font-weight:700; color:var(--ink);">Guidance beyond the course catalogue</h2>
+          <p style="font-size:15.5px; color:var(--sub); max-width:480px;">We help professionals narrow down the right program based on career goal, eligibility and experience.</p>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center;">
+          <img src="assets/photo-counselling.jpg" alt="Counsellor guiding a student through program options" style="width:100%; max-width:420px; height:179px; object-fit:cover; border-radius:16px; display:block; box-shadow:0 16px 40px rgba(17,62,153,0.16);">
+        </div>
+      </div>
+      <div class="why-grid">
+        <div style="background:var(--white); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:14px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:#E7EEF5; display:flex; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#205589" stroke-width="1.7"/><path d="M14 8l-2.5 5.5L6 16l2.5-5.5L14 8z" fill="#205589"/></svg>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Program Selection</div>
+          <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">Compare programs by career goal, eligibility and experience.</p>
+        </div>
+        <div style="background:var(--white); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:14px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:#FCEEDA; display:flex; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 11a6 6 0 0112 0v4a2 2 0 01-2 2h-1v-6h3M5 11v4a2 2 0 002 2h1v-6H5z" stroke="#FE9900" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Personal Counselling</div>
+          <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">One-to-one guidance from an admissions counsellor.</p>
+        </div>
+        <div style="background:var(--white); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:14px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:#E7EEF5; display:flex; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 18l3-9 4 6 3-11 4 14" stroke="#205589" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Eligibility Assistance</div>
+          <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">Identify the programs you already qualify for.</p>
+        </div>
+        <div style="background:var(--white); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:14px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:#FCEEDA; display:flex; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 9l7-5 7 5-7 5-7-5z" stroke="#FE9900" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 11v4c0 1.3 1.8 2.5 4 2.5s4-1.2 4-2.5v-4" stroke="#FE9900" stroke-width="1.7"/></svg>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">University Guidance</div>
+          <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">Understand institution, credential and program structure.</p>
+        </div>
+        <div style="background:var(--white); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:14px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:#E7EEF5; display:flex; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="#205589" stroke-width="1.7"/><path d="M11 6v5l3.5 2" stroke="#205589" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Flexible Learning</div>
+          <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">Programs suitable for working professionals.</p>
+        </div>
+        <div style="background:var(--white); border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:14px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:#FCEEDA; display:flex; align-items:center; justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3l7 3v5c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z" stroke="#FE9900" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 11l2 2 4-4.5" stroke="#FE9900" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Admission Support</div>
+          <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">Support from application through enrolment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div id="how" style="max-width:1240px; margin:0 auto; padding:88px 40px;">
+    <div style="display:flex; flex-direction:column; gap:14px; align-items:flex-start; margin-bottom:56px;">
+      <div style="color:var(--orange); font-size:13px; font-weight:700; letter-spacing:0.08em;">HOW IT WORKS</div>
+      <h2 style="font-size:34px; font-weight:700; color:var(--ink);">Four steps from here to enrolled</h2>
+    </div>
+    <div class="steps-row">
+      <div style="display:flex; flex-direction:column; gap:14px; padding-right:24px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:var(--navy); color:var(--white); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center;">01</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Submit Your Details</div>
+        <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">Tell us your qualification, experience and the field you want to grow in.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px; padding-right:24px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:var(--navy); color:var(--white); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center;">02</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Get Eligibility Assessment</div>
+        <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">We match your profile against real program requirements.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px; padding-right:24px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:var(--navy); color:var(--white); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center;">03</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Speak With A Counsellor</div>
+        <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">A 1:1 session to shortlist programs and plan your timeline.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="width:52px; height:52px; border-radius:50%; background:var(--orange); color:var(--white); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; display:flex; align-items:center; justify-content:center;">04</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16.5px;">Complete Your Admission</div>
+        <p style="font-size:13.5px; color:var(--sub); line-height:1.55;">We guide documentation and application through to enrolment.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div id="faq" style="max-width:840px; margin:0 auto; padding:88px 40px;">
+    <div style="display:flex; flex-direction:column; gap:14px; align-items:flex-start; margin-bottom:44px;">
+      <div style="color:var(--orange); font-size:13px; font-weight:700; letter-spacing:0.08em;">FAQ</div>
+      <h2 style="font-size:34px; font-weight:700; color:var(--ink);">Common questions</h2>
+    </div>
+    <div id="faq-list">
+      <div class="faq-item open" data-faq="0">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">Are the degrees and certificates recognised?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">Yes. Every program is delivered directly by the partner institution named on its course card, so the degree or certificate carries that institution’s own recognition.</p>
+      </div>
+      <div class="faq-item" data-faq="1">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">What documents are required?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">Typically academic transcripts, a government ID, an updated resume, and any work-experience letters relevant to your chosen program’s eligibility. Your counsellor confirms the exact list for that program.</p>
+      </div>
+      <div class="faq-item" data-faq="2">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">Is an entrance exam required?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">It depends on the program and institution — many executive and working-professional tracks waive standardised entrance exams in favour of work experience and academic background.</p>
+      </div>
+      <div class="faq-item" data-faq="3">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">Are scholarships / EMI options available?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">Instalment (EMI) options are available on many programs, and some qualify for scholarships or financing support. Ask your counsellor which apply to your shortlisted program.</p>
+      </div>
+      <div class="faq-item" data-faq="4">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">Are the programs valid in India and internationally?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">Each program’s validity follows the accreditation of its awarding institution. Your counsellor can confirm recognition for your specific country or employer before you apply.</p>
+      </div>
+      <div class="faq-item" data-faq="5">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">What is the minimum work experience required?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">This varies by program — some certificates accept fresh Bachelor’s graduates, while executive and doctorate programs typically require 3–8+ years of experience. Check the Eligibility line on each course card.</p>
+      </div>
+      <div class="faq-item" data-faq="6">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">Who can apply?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">Working professionals and graduates who meet a program’s stated eligibility — typically a Bachelor’s or Master’s degree, sometimes with a minimum number of years of work experience.</p>
+      </div>
+      <div class="faq-item" data-faq="7">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">How long does each program take?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">Program duration is shown on every course card — certificates typically run 4–7 months, master’s and executive programs 13–18 months, and doctorate programs 24–36 months.</p>
+      </div>
+      <div class="faq-item" data-faq="8">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">Are the programs online?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">Yes — with a choice of Online, Offline, or Any mode. You can select your preferred mode when you apply.</p>
+      </div>
+      <div class="faq-item" data-faq="9">
+        <div class="faq-q">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;">How does admission work?</div>
+          <div class="faq-icon">
+            <svg class="icon-plus" width="12" height="12" viewBox="0 0 12 12"><path d="M6 1v10M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="icon-minus" width="12" height="12" viewBox="0 0 12 12"><path d="M1 6h10" stroke="#205589" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <p class="faq-a">Submit your details, complete an eligibility assessment, speak with a counsellor, then complete your admission — see How It Works below for the full four-step process.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA + FORM -->
+  <div id="final-form" style="background:linear-gradient(120deg, var(--navy), var(--deep)); padding:80px 40px;">
+    <div style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <h2 style="font-size:32px; font-weight:700; color:var(--white);">Not Sure Which Program Is Right For You?</h2>
+        <p style="font-size:15.5px; color:#C7D6E8; line-height:1.6;">Tell us about your education, experience and career goals. Our counsellor will help identify suitable programs.</p>
+      </div>
+      <form id="final-lead-form" name="final-lead-form" method="POST" style="background:var(--white); border-radius:20px; padding:28px; display:flex; flex-direction:column; gap:14px;">
+        <div class="form-grid">
+          <input class="field" type="text" name="fullName" placeholder="Full Name" style="grid-column:1 / -1;" required>
+          <input class="field" type="tel" name="mobile" placeholder="Mobile" required>
+          <input class="field" type="email" name="email" placeholder="Email" required>
+          <select class="field" name="qualification">
+            <option value="" disabled selected>Highest Qualification</option>
+            <option>Bachelor&rsquo;s Degree</option>
+            <option>Master&rsquo;s Degree</option>
+            <option>Doctorate / PhD</option>
+          </select>
+          <select class="field" name="experience">
+            <option value="" disabled selected>Work Experience</option>
+            <option>0&ndash;2 years</option>
+            <option>3&ndash;5 years</option>
+            <option>6&ndash;10 years</option>
+            <option>10+ years</option>
+          </select>
+          <select class="field" name="program" style="grid-column:1 / -1;">
+            <option value="" disabled selected>Interested Program</option>
+            <option>Doctorate</option>
+            <option>Master&rsquo;s</option>
+            <option>AI &amp; Technology</option>
+            <option>Marketing</option>
+          </select>
+        </div>
+        <button class="btn-orange" type="submit" style="background:var(--orange); color:var(--white); border:none; font-weight:600; font-size:15px; padding:14px 20px; border-radius:9px; cursor:pointer; width:100%;">Get Free Counselling</button>
+        <div style="text-align:center; font-size:11.5px; color:var(--sub);"><span style="text-decoration:line-through; opacity:0.7;">&#8377;5,000/-</span> per session &mdash; free for a limited time</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background:#0F2A4D; padding:64px 40px 90px 40px;">
+    <div style="max-width:1240px; margin:0 auto;">
+      <div class="footer-grid" style="margin-bottom:44px;">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <img src="assets/mark-white.png" alt="AcademiaX mark" style="height:26px; width:auto; display:block;">
+            <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; color:var(--white);">Academia<span style="color:var(--orange);">X</span></span>
+          </div>
+          <p style="font-size:13.5px; color:#93A9C2; line-height:1.6; max-width:260px;">Connecting ambitious professionals with industry-recognised degree and certification programs.</p>
+          <a href="mailto:info@academiaxedu.com" style="font-size:13.5px; color:#93A9C2;">info@academiaxedu.com</a>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white);">Programs</div>
+          <a href="#courses" style="font-size:13.5px; color:#93A9C2;">Doctorate</a>
+          <a href="#courses" style="font-size:13.5px; color:#93A9C2;">Master&rsquo;s</a>
+          <a href="#courses" style="font-size:13.5px; color:#93A9C2;">AI &amp; Technology</a>
+          <a href="#courses" style="font-size:13.5px; color:#93A9C2;">Marketing</a>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white);">Company</div>
+          <a href="#why" style="font-size:13.5px; color:#93A9C2;">Why AcademiaX</a>
+          <a href="#universities" style="font-size:13.5px; color:#93A9C2;">Universities</a>
+          <a href="#how" style="font-size:13.5px; color:#93A9C2;">How It Works</a>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white);">Support</div>
+          <a href="#faq" style="font-size:13.5px; color:#93A9C2;">FAQ</a>
+          <a href="#lead-form" style="font-size:13.5px; color:#93A9C2;">Apply Now</a>
+          <a href="#lead-form" style="font-size:13.5px; color:#93A9C2;">Get Counselling</a>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.12); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+        <div style="font-size:12.5px; color:#7C93AF;">&copy; 2026 AcademiaX. All rights reserved.</div>
+        <div style="font-size:12.5px; color:#7C93AF;">Privacy Policy &middot; Terms of Service</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="sticky-mobile-cta" style="position:fixed; bottom:0; left:0; right:0; z-index:50; background:var(--white); border-top:1px solid var(--pale); padding:10px 16px; align-items:center; justify-content:center; box-shadow:0 -6px 20px rgba(17,62,153,0.12);">
+    <a href="#lead-form" style="background:var(--orange); color:var(--white); font-weight:600; font-size:14.5px; padding:12px 0; border-radius:9px; width:100%; text-align:center;">Apply Now</a>
+  </div>
+
+<script>
+(function(){
+  // Category filter
+  var tiles = document.querySelectorAll('.cat-tile');
+  var cards = document.querySelectorAll('.course-card');
+  var noCourses = document.getElementById('no-courses');
+  tiles.forEach(function(tile){
+    tile.addEventListener('click', function(){
+      tiles.forEach(function(t){ t.classList.remove('active'); });
+      tile.classList.add('active');
+      var cat = tile.getAttribute('data-cat');
+      var visible = 0;
+      cards.forEach(function(card){
+        var show = (cat === 'All') || (card.getAttribute('data-category') === cat);
+        card.hidden = !show;
+        if (show) visible++;
+      });
+      noCourses.hidden = visible !== 0;
+      document.getElementById('courses').scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+
+  // Course detail toggle
+  document.querySelectorAll('.course-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var card = btn.closest('.course-card');
+      var details = card.querySelector('.course-details');
+      var isHidden = details.hidden;
+      details.hidden = !isHidden;
+      btn.textContent = isHidden ? 'Hide Details' : 'View Full Details';
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
