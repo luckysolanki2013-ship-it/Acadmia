@@ -225,7 +225,6 @@
           <button class="btn-orange" type="submit" style="flex:none; background:var(--orange); color:var(--white); border:none; font-weight:600; font-size:14.5px; padding:13px 26px; border-radius:9px; cursor:pointer;">Get Program Details &amp; Counselling</button>
           <a href="#courses" style="font-size:12.5px; color:var(--sub);">or browse all programs first &darr;</a>
         </div>
-        <div class="form-note">Submissions are collected via Google Forms &mdash; see setup notes in the project README.</div>
       </div>
     </form>
   </div>
@@ -2058,6 +2057,58 @@
       if (!wasOpen) item.classList.add('open');
     });
   });
+
+  // Lead form submission -> Google Forms
+  var GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSdwg_3I4pYLDpWoL3Rh6l0Gm0u2lUNVExo_DdlFzbY9pnnLHg/formResponse';
+  var ENTRY_MAP = {
+    fullName: 'entry.1702341567',
+    mobile: 'entry.1818629071',
+    email: 'entry.471019320',
+    city: 'entry.616133161',
+    qualification: 'entry.131612901',
+    experience: 'entry.1505682903',
+    program: 'entry.1082163925',
+    learningMode: 'entry.1254953726'
+  };
+
+  function showThankYou(form){
+    var wrapper = document.createElement('div');
+    wrapper.style.cssText = 'text-align:center; padding:24px 10px;';
+    wrapper.innerHTML = '<div style="font-size:34px; margin-bottom:10px;">&#9989;</div>' +
+      '<div style="font-family:Space Grotesk,sans-serif; font-weight:700; font-size:19px; color:var(--navy); margin-bottom:6px;">Thank you!</div>' +
+      '<div style="font-size:13.5px; color:var(--sub); max-width:320px; margin:0 auto;">Our counsellor will reach out within one business day.</div>';
+    form.parentNode.replaceChild(wrapper, form);
+  }
+
+  function wireLeadForm(formId){
+    var form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Submitting...'; }
+
+      var data = new FormData(form);
+      var params = new URLSearchParams();
+      Object.keys(ENTRY_MAP).forEach(function(key){
+        params.append(ENTRY_MAP[key], data.get(key) || '');
+      });
+
+      fetch(GOOGLE_FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      }).then(function(){
+        showThankYou(form);
+      }).catch(function(){
+        showThankYou(form);
+      });
+    });
+  }
+
+  wireLeadForm('lead-form');
+  wireLeadForm('final-lead-form');
 })();
 </script>
 </body>
