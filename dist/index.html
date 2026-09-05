@@ -72,6 +72,7 @@
     .footer-grid{grid-template-columns:1fr 1fr;}
     .steps-row{grid-template-columns:repeat(2,1fr); row-gap:32px;}
     .hero-row{grid-template-columns:1fr;}
+    .final-cta-grid{grid-template-columns:1fr !important; gap:32px !important;}
     .hero-photo-row{grid-template-columns:1fr !important; min-height:0 !important;}
     .hero-photo-row > div:first-child{padding:64px 32px 40px 32px !important;}
     .hero-photo-row > div:last-child{height:340px;}
@@ -91,6 +92,9 @@
     .sticky-mobile-cta{display:flex;}
     body{padding-bottom:64px;}
     .hero-photo-row h1{font-size:34px !important;}
+    .hero-features{display:grid !important; grid-template-columns:1fr 1fr; gap:20px 12px;}
+    .hero-feature-item{width:auto !important; padding:0 !important;}
+    .hero-feature-divider{display:none !important;}
   }
 </style>
 </head>
@@ -133,23 +137,23 @@
         <div style="width:56px; height:3px; background:var(--orange);"></div>
         <p style="font-size:16.5px; line-height:1.6; color:var(--sub); max-width:460px;">Industry-recognised online programs &mdash; MBA, DBA, AI, Data Science, Digital Marketing and Leadership &mdash; from 10+ leading institutions, built for working professionals.</p>
 
-        <div style="display:flex; align-items:flex-start; gap:0; margin-top:10px; flex-wrap:wrap;">
-          <div style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px 0 0; text-align:center; width:120px;">
+        <div class="hero-features" style="display:flex; align-items:flex-start; gap:0; margin-top:10px; flex-wrap:wrap;">
+          <div class="hero-feature-item" style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px 0 0; text-align:center; width:120px;">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l11 6-11 6-11-6 11-6z" stroke="#205589" stroke-width="1.7" stroke-linejoin="round"/><path d="M7 13v6c0 2 3 4 7 4s7-2 7-4v-6" stroke="#205589" stroke-width="1.7"/></svg>
             <span style="font-size:12.5px; color:var(--ink); font-weight:500; line-height:1.35;">Top Ranked Universities</span>
           </div>
-          <div style="width:1px; background:var(--pale); align-self:stretch;"></div>
-          <div style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px; text-align:center; width:120px;">
+          <div class="hero-feature-divider" style="width:1px; background:var(--pale); align-self:stretch;"></div>
+          <div class="hero-feature-item" style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px; text-align:center; width:120px;">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="5" width="22" height="15" rx="2" stroke="#205589" stroke-width="1.7"/><circle cx="14" cy="11" r="2.6" stroke="#205589" stroke-width="1.5"/><path d="M9 17c0-2.5 2.2-4 5-4s5 1.5 5 4" stroke="#205589" stroke-width="1.5"/><path d="M10 25h8M14 20v5" stroke="#205589" stroke-width="1.7" stroke-linecap="round"/></svg>
             <span style="font-size:12.5px; color:var(--ink); font-weight:500; line-height:1.35;">100% Online Learning</span>
           </div>
-          <div style="width:1px; background:var(--pale); align-self:stretch;"></div>
-          <div style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px; text-align:center; width:120px;">
+          <div class="hero-feature-divider" style="width:1px; background:var(--pale); align-self:stretch;"></div>
+          <div class="hero-feature-item" style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 20px; text-align:center; width:120px;">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="18" rx="2" stroke="#205589" stroke-width="1.7"/><path d="M4 11h20M9 4v4M19 4v4" stroke="#205589" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="17" r="1.4" fill="#205589"/><circle cx="14" cy="17" r="1.4" fill="#205589"/></svg>
             <span style="font-size:12.5px; color:var(--ink); font-weight:500; line-height:1.35;">Flexible Schedule</span>
           </div>
-          <div style="width:1px; background:var(--pale); align-self:stretch;"></div>
-          <div style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 0 0 20px; text-align:center; width:120px;">
+          <div class="hero-feature-divider" style="width:1px; background:var(--pale); align-self:stretch;"></div>
+          <div class="hero-feature-item" style="display:flex; flex-direction:column; align-items:center; gap:10px; padding:0 0 0 20px; text-align:center; width:120px;">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M9 3h10l3 3v16a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="#205589" stroke-width="1.7" stroke-linejoin="round"/><circle cx="14" cy="15" r="3.4" stroke="#205589" stroke-width="1.5"/><path d="M12 18l-1.5 4 3.5-1.5 3.5 1.5-1.5-4" stroke="#205589" stroke-width="1.5" stroke-linejoin="round"/></svg>
             <span style="font-size:12.5px; color:var(--ink); font-weight:500; line-height:1.35;">Industry Relevant</span>
           </div>
@@ -1681,7 +1685,7 @@
       </div>
       <div style="display:flex; flex-direction:column; align-items:flex-end; gap:4px;">
         <a href="#lead-form" style="background:var(--orange); color:var(--white); font-weight:600; font-size:13.5px; padding:13px 24px; border-radius:8px; white-space:nowrap;">Get Free Counselling</a>
-        <div style="font-size:11px; color:#C7D6E8;"><span style="text-decoration:line-through; opacity:0.75;">&#8377;5,000/-</span> today it&rsquo;s free</div>
+        <div style="font-size:11px; color:#C7D6E8; text-align:left;"><span style="text-decoration:line-through; opacity:0.75;">&#8377;5,000/-</span> Today it&rsquo;s FREE</div>
       </div>
     </div>
   </div>
@@ -1932,7 +1936,7 @@
 
   <!-- FINAL CTA + FORM -->
   <div id="final-form" style="background:linear-gradient(120deg, var(--navy), var(--deep)); padding:80px 40px;">
-    <div style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+    <div class="final-cta-grid" style="max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
       <div style="display:flex; flex-direction:column; gap:16px;">
         <h2 style="font-size:32px; font-weight:700; color:var(--white);">Not Sure Which Program Is Right For You?</h2>
         <p style="font-size:15.5px; color:#C7D6E8; line-height:1.6;">Tell us about your education, experience and career goals. Our counsellor will help identify suitable programs.</p>
@@ -1964,7 +1968,7 @@
           </select>
         </div>
         <button class="btn-orange" type="submit" style="background:var(--orange); color:var(--white); border:none; font-weight:600; font-size:15px; padding:14px 20px; border-radius:9px; cursor:pointer; width:100%;">Get Free Counselling</button>
-        <div style="text-align:center; font-size:11.5px; color:var(--sub);"><span style="text-decoration:line-through; opacity:0.7;">&#8377;5,000/-</span> per session &mdash; free for a limited time</div>
+        <div style="text-align:left; font-size:11.5px; color:var(--sub);"><span style="text-decoration:line-through; opacity:0.7;">&#8377;5,000/-</span> per session &mdash; FREE for a limited time</div>
       </form>
     </div>
   </div>
