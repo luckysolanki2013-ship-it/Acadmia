@@ -95,7 +95,25 @@
     .hero-features{display:grid !important; grid-template-columns:1fr 1fr; gap:20px 12px;}
     .hero-feature-item{width:auto !important; padding:0 !important;}
     .hero-feature-divider{display:none !important;}
+    .chatbot-bubble{bottom:82px !important;}
+    .chatbot-panel{right:16px !important; left:16px !important; width:auto !important; bottom:150px !important; max-height:min(460px, 70vh) !important;}
   }
+  .chatbot-bubble{position:fixed; bottom:28px; right:24px; z-index:60; width:58px; height:58px; border-radius:50%; background:var(--orange); color:var(--white); border:none; cursor:pointer; box-shadow:0 10px 26px rgba(254,153,0,0.4); display:flex; align-items:center; justify-content:center;}
+  .chatbot-bubble svg{width:26px; height:26px;}
+  .chatbot-panel{position:fixed; bottom:100px; right:24px; z-index:60; width:340px; max-height:480px; background:var(--white); border-radius:16px; box-shadow:0 20px 60px rgba(17,62,153,0.25); display:none; flex-direction:column; overflow:hidden;}
+  .chatbot-panel.open{display:flex;}
+  .chatbot-header{background:linear-gradient(100deg, var(--navy), var(--deep)); color:var(--white); padding:16px 18px; display:flex; align-items:center; justify-content:space-between;}
+  .chatbot-header-title{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;}
+  .chatbot-header-sub{font-size:11.5px; color:#C7D6E8; margin-top:2px;}
+  .chatbot-close{background:none; border:none; color:var(--white); font-size:20px; cursor:pointer; line-height:1; padding:4px;}
+  .chatbot-messages{flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background:var(--bg);}
+  .chat-msg{max-width:80%; padding:10px 13px; border-radius:14px; font-size:13px; line-height:1.45;}
+  .chat-msg.bot{background:var(--white); border:1px solid var(--pale); color:var(--ink); align-self:flex-start; border-bottom-left-radius:4px;}
+  .chat-msg.user{background:var(--orange); color:var(--white); align-self:flex-end; border-bottom-right-radius:4px;}
+  .chatbot-input-row{display:flex; gap:8px; padding:12px; border-top:1px solid var(--pale); background:var(--white);}
+  .chatbot-input{flex:1; padding:10px 12px; border:1px solid var(--pale); border-radius:9px; font-size:13px; font-family:inherit;}
+  .chatbot-send{background:var(--orange); color:var(--white); border:none; border-radius:9px; padding:0 16px; cursor:pointer; font-weight:600; font-size:13px;}
+  .chatbot-send:disabled{opacity:0.5; cursor:default;}
 </style>
 </head>
 <body>
@@ -2016,6 +2034,25 @@
     <a href="#lead-form" style="background:var(--orange); color:var(--white); font-weight:600; font-size:14.5px; padding:12px 0; border-radius:9px; width:100%; text-align:center;">Apply Now</a>
   </div>
 
+  <!-- CHATBOT WIDGET -->
+  <button class="chatbot-bubble" id="chatbot-bubble" type="button" aria-label="Chat with us">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="chatbot-panel" id="chatbot-panel">
+    <div class="chatbot-header">
+      <div>
+        <div class="chatbot-header-title">AcademiaX Assistant</div>
+        <div class="chatbot-header-sub">Usually replies within a business day</div>
+      </div>
+      <button class="chatbot-close" id="chatbot-close" type="button" aria-label="Close chat">&times;</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <div class="chatbot-input-row">
+      <input class="chatbot-input" id="chatbot-input" type="text" placeholder="Type here...">
+      <button class="chatbot-send" id="chatbot-send" type="button">Send</button>
+    </div>
+  </div>
+
 <script>
 (function(){
   // Category filter
@@ -2130,6 +2167,103 @@
 
   wireLeadForm('lead-form');
   wireLeadForm('final-lead-form');
+
+  // Chatbot widget
+  var CHATBOT_STEPS = [
+    { key: 'fullName', prompt: "Hi! I'm the AcademiaX assistant. What's your name?", validate: function(v){ return v.trim().length > 1; }, error: 'Please enter your name.' },
+    { key: 'mobile', prompt: "What's your mobile number?", validate: function(v){ return /^\d{7,15}$/.test(v.replace(/\D/g, '')); }, error: 'Please enter a valid mobile number.' },
+    { key: 'email', prompt: "What's your email address?", validate: function(v){ return /\S+@\S+\.\S+/.test(v); }, error: 'Please enter a valid email address.' },
+    { key: 'query', prompt: 'What would you like to ask us?', validate: function(v){ return v.trim().length > 2; }, error: 'Please type your question.' }
+  ];
+  var CHATBOT_QUERY_ENTRY = 'entry.0000000000'; // TODO: replace with the real entry ID for the "Query" field once added to the Google Form
+
+  (function(){
+    var bubble = document.getElementById('chatbot-bubble');
+    var panel = document.getElementById('chatbot-panel');
+    var closeBtn = document.getElementById('chatbot-close');
+    var messagesEl = document.getElementById('chatbot-messages');
+    var inputEl = document.getElementById('chatbot-input');
+    var sendBtn = document.getElementById('chatbot-send');
+    if (!bubble || !panel) return;
+
+    var stepIndex = 0;
+    var answers = {};
+    var started = false;
+
+    function addMessage(text, sender){
+      var msg = document.createElement('div');
+      msg.className = 'chat-msg ' + sender;
+      msg.textContent = text;
+      messagesEl.appendChild(msg);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function askCurrentStep(){
+      if (stepIndex < CHATBOT_STEPS.length) {
+        addMessage(CHATBOT_STEPS[stepIndex].prompt, 'bot');
+      } else {
+        finishChat();
+      }
+    }
+
+    function handleSend(){
+      var value = inputEl.value.trim();
+      if (!value) return;
+      var step = CHATBOT_STEPS[stepIndex];
+      if (!step.validate(value)) {
+        addMessage(value, 'user');
+        inputEl.value = '';
+        addMessage(step.error, 'bot');
+        return;
+      }
+      answers[step.key] = value;
+      addMessage(value, 'user');
+      inputEl.value = '';
+      stepIndex++;
+      setTimeout(askCurrentStep, 300);
+    }
+
+    function finishChat(){
+      inputEl.disabled = true;
+      sendBtn.disabled = true;
+      inputEl.placeholder = 'Conversation complete';
+      addMessage('Thanks! Our team will reach out to you within one business day.', 'bot');
+      submitChatToGoogleForm(answers);
+    }
+
+    function submitChatToGoogleForm(data){
+      var params = new URLSearchParams();
+      params.append(ENTRY_MAP.fullName, data.fullName || '');
+      params.append(ENTRY_MAP.mobile, data.mobile || '');
+      params.append(ENTRY_MAP.email, data.email || '');
+      params.append(CHATBOT_QUERY_ENTRY, data.query || '');
+      fetch(GOOGLE_FORM_ACTION, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      }).catch(function(){});
+    }
+
+    bubble.addEventListener('click', function(){
+      panel.classList.add('open');
+      bubble.style.display = 'none';
+      if (!started) {
+        started = true;
+        setTimeout(askCurrentStep, 200);
+      }
+    });
+
+    closeBtn.addEventListener('click', function(){
+      panel.classList.remove('open');
+      bubble.style.display = 'flex';
+    });
+
+    sendBtn.addEventListener('click', handleSend);
+    inputEl.addEventListener('keydown', function(e){
+      if (e.key === 'Enter') { e.preventDefault(); handleSend(); }
+    });
+  })();
 })();
 </script>
 </body>
