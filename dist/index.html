@@ -92,7 +92,8 @@
     .chatbot-bubble{bottom:82px !important;}
     .chatbot-panel{right:16px !important; left:16px !important; width:auto !important; bottom:150px !important; max-height:min(460px, 70vh) !important;}
   }
-  .chatbot-bubble{position:fixed; bottom:28px; right:24px; z-index:60; width:58px; height:58px; border-radius:50%; background:var(--orange); color:var(--white); border:none; cursor:pointer; box-shadow:0 10px 26px rgba(254,153,0,0.4); display:flex; align-items:center; justify-content:center;}
+  .chatbot-bubble{position:fixed; bottom:28px; right:24px; z-index:60; width:58px; height:58px; border-radius:50%; background:var(--orange); color:var(--white); border:none; cursor:pointer; box-shadow:0 10px 26px rgba(254,153,0,0.4); display:flex; align-items:center; justify-content:center; opacity:1; transition:opacity .15s ease;}
+  .chatbot-bubble.chatbot-bubble-dim{opacity:0; pointer-events:none;}
   .chatbot-bubble svg{width:26px; height:26px;}
   .chatbot-panel{position:fixed; bottom:100px; right:24px; z-index:60; width:340px; max-height:480px; background:var(--white); border-radius:16px; box-shadow:0 20px 60px rgba(17,62,153,0.25); display:none; flex-direction:column; overflow:hidden;}
   .chatbot-panel.open{display:flex;}
@@ -234,7 +235,7 @@
           </select>
         </div>
         <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
-          <button class="btn-orange" type="submit" style="flex:none; background:var(--orange); color:var(--white); border:none; font-weight:600; font-size:14.5px; padding:13px 26px; border-radius:9px; cursor:pointer;">Get Program Details &amp; Counselling</button>
+          <button class="btn-orange" type="submit" style="width:100%; background:var(--orange); color:var(--white); border:none; font-weight:600; font-size:14.5px; padding:13px 26px; border-radius:9px; cursor:pointer;">Get Program Details &amp; Counselling</button>
           <a href="#courses" style="font-size:12.5px; color:var(--sub);">or browse all programs first &darr;</a>
         </div>
       </div>
@@ -1384,6 +1385,43 @@
     inputEl.addEventListener('keydown', function(e){
       if (e.key === 'Enter') { e.preventDefault(); handleSend(); }
     });
+  })();
+
+  // Dim the chat bubble whenever it would sit on top of a primary CTA button (e.g. a
+  // form's submit button scrolled to the bottom of the viewport), so it never covers
+  // or blocks tappable text.
+  (function(){
+    var bubble = document.getElementById('chatbot-bubble');
+    var ctas = document.querySelectorAll('.btn-orange');
+    if (!bubble || !ctas.length) return;
+
+    function rectsOverlap(a, b){
+      return !(a.right < b.left || a.left > b.right || a.bottom < b.top || a.top > b.bottom);
+    }
+
+    var ticking = false;
+    function updateOverlap(){
+      ticking = false;
+      if (bubble.style.display === 'none') return;
+      var bubbleRect = bubble.getBoundingClientRect();
+      var hit = false;
+      for (var i = 0; i < ctas.length; i++) {
+        var r = ctas[i].getBoundingClientRect();
+        if (r.width === 0 && r.height === 0) continue;
+        if (rectsOverlap(bubbleRect, r)) { hit = true; break; }
+      }
+      bubble.classList.toggle('chatbot-bubble-dim', hit);
+    }
+    function requestUpdate(){
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateOverlap);
+      }
+    }
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    requestUpdate();
   })();
 })();
 </script>
