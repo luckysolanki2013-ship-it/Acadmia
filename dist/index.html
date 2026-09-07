@@ -36,15 +36,9 @@
   @keyframes marquee-scroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
   .badge-navy{background:#E7EEF5; color:var(--navy); font-size:11px; font-weight:700; padding:5px 10px; border-radius:999px;}
   .pill{background:var(--bg); font-size:11px; color:var(--sub); padding:4px 10px; border-radius:999px;}
-  .btn-outline-navy{flex:1; min-width:100px; background:transparent; border:1px solid var(--navy); color:var(--navy); font-weight:600; font-size:12.5px; padding:10px 12px; border-radius:8px; cursor:pointer;}
-  .btn-outline-sub{flex:1; min-width:100px; background:transparent; border:1px solid var(--pale); color:var(--sub); font-weight:600; font-size:12.5px; padding:10px 12px; border-radius:8px; cursor:pointer;}
   .btn-orange{flex:1; min-width:100px; background:var(--orange); border:none; color:var(--white); font-weight:600; font-size:12.5px; padding:10px 12px; border-radius:8px; cursor:pointer;}
   .course-card{background:var(--white); border-radius:16px; padding:22px; border:1px solid var(--pale); display:flex; flex-direction:column; gap:12px;}
   .course-card[hidden]{display:none;}
-  .course-details{border-top:1px solid var(--pale); margin-top:6px; padding-top:14px; display:flex; flex-direction:column; gap:10px;}
-  .course-details[hidden]{display:none;}
-  .detail-label{font-size:11.5px; font-weight:700; color:var(--ink);}
-  .detail-text{font-size:12px; color:var(--sub); line-height:1.5;}
   .cat-tile{cursor:pointer; background:var(--white); border:1.5px solid var(--pale); border-radius:14px; padding:16px 14px; display:flex; flex-direction:column; gap:8px; align-items:flex-start;}
   .cat-tile.active{background:var(--navy); border-color:var(--navy);}
   .cat-tile-label{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13.5px; color:var(--ink);}
@@ -281,7 +275,6 @@
         <img src="assets/logo-edgewood.png" alt="Edgewood University" style="height:34px; width:auto; display:block;">
         <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--navy); white-space:nowrap;">Liverpool Business School</div>
         <img src="assets/logo-iiitb.png" alt="IIIT Bangalore" style="height:34px; width:auto; display:block;">
-        <img src="assets/logo-iimk.png" alt="IIM Kozhikode" style="height:34px; width:auto; display:block;">
         <img src="assets/logo-ljmu.png" alt="Liverpool John Moores University" style="height:34px; width:auto; display:block;">
         <img src="assets/logo-mica.png" alt="MICA" style="height:34px; width:auto; display:block;">
         <img src="assets/logo-goldengate.png" alt="Golden Gate University" style="height:34px; width:auto; display:block;">
@@ -291,7 +284,6 @@
         <img src="assets/logo-edgewood.png" alt="Edgewood University" style="height:34px; width:auto; display:block;">
         <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:14.5px; color:var(--navy); white-space:nowrap;">Liverpool Business School</div>
         <img src="assets/logo-iiitb.png" alt="IIIT Bangalore" style="height:34px; width:auto; display:block;">
-        <img src="assets/logo-iimk.png" alt="IIM Kozhikode" style="height:34px; width:auto; display:block;">
         <img src="assets/logo-ljmu.png" alt="Liverpool John Moores University" style="height:34px; width:auto; display:block;">
         <img src="assets/logo-mica.png" alt="MICA" style="height:34px; width:auto; display:block;">
       </div>
@@ -313,7 +305,7 @@
     <div class="cat-tiles" id="cat-tiles">
         <div class="cat-tile active" data-cat="All">
           <div class="cat-tile-label">All Programs</div>
-          <div class="cat-tile-count">30 programs</div>
+          <div class="cat-tile-count">29 programs</div>
         </div>
         <div class="cat-tile" data-cat="Doctorate">
           <div class="cat-tile-label">Doctorate</div>
@@ -351,35 +343,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Master's or Bachelor's + 5 years work experience.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -396,35 +360,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Master's or Bachelor's + 3 years work experience.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Rushford University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -441,35 +377,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Master's or Bachelor's + 3 years work experience.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by ESGCI on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -486,35 +394,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's + 5 years experience or Master's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by SSBM on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -531,35 +411,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Master's Degree.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Edgewood University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -576,80 +428,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's Degree.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Edgewood University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
-        </div>
-      </div>
-      <div class="course-card" data-category="HR">
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
-          <div class="badge-navy">HR</div>
-          <div style="font-size:12px; color:var(--sub); white-space:nowrap;">6 Months</div>
-        </div>
-        <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; line-height:1.3;">Professional Certificate Programme in HR Management and Analytics</div>
-        <div style="font-size:13px; color:var(--navy); font-weight:600;">IIM Kozhikode</div>
-        <p style="font-size:12.5px; color:var(--sub); line-height:1.5;">A 6 Months HR program delivered by IIM Kozhikode.</p>
-        <div style="font-size:12px; color:var(--sub);"><strong style="color:var(--ink);">Eligibility:</strong> Bachelor's + minimum 3 years work experience</div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <div class="pill">HR</div>
-          <div class="pill">Certificate on completion</div>
-        </div>
-        <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's + minimum 3 years work experience.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Ask your counsellor for outcomes specific to this program.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIM Kozhikode on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="AI &amp; Technology">
@@ -666,35 +445,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="AI &amp; Technology">
@@ -711,35 +462,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="AI &amp; Technology">
@@ -756,35 +479,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIT Kharagpur on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Marketing">
@@ -801,35 +496,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Digital Marketing, Brand Strategy and Communication roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by MICA on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Marketing">
@@ -846,35 +513,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Digital Marketing, Brand Strategy and Communication roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by MICA on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="AI &amp; Technology">
@@ -891,35 +530,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's/Master's + minimum 4 years experience.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="AI &amp; Technology">
@@ -936,35 +547,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="AI &amp; Technology">
@@ -981,35 +564,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's/Master's + minimum 8 years experience.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Master's">
@@ -1026,35 +581,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Master's">
@@ -1071,35 +598,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Liverpool Business School on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Master's">
@@ -1116,35 +615,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by LJMU + IIIT Bangalore on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Master's">
@@ -1161,35 +632,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by LJMU + IIIT Bangalore on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="AI &amp; Technology">
@@ -1206,35 +649,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Bachelor's or Master's.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIIT Bangalore on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1251,35 +666,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Rushford Business School on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1296,35 +683,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by ESGCI, Paris on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="AI &amp; Technology">
@@ -1341,35 +700,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by IIT-B &amp; IIM Udaipur on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1386,35 +717,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1431,35 +734,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Edgewood University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1476,35 +751,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Swiss School of Business and Management (SSBM), Geneva on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1521,35 +768,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1566,35 +785,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">AI Strategy, Data Analytics, Machine Learning and AI Product Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1611,35 +802,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Edgewood University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
       <div class="course-card" data-category="Doctorate">
@@ -1656,35 +819,7 @@
           <div class="pill">Certificate on completion</div>
         </div>
         <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap;">
-          <button class="btn-outline-navy" type="button">Get Brochure</button>
-          <button class="btn-outline-sub course-toggle" type="button">View Full Details</button>
-          <button class="btn-orange course-apply" type="button">Apply Now</button>
-        </div>
-        <div class="course-details" hidden>
-          <div class="course-detail-row">
-            <div class="detail-label">Who It&rsquo;s For</div>
-            <p class="detail-text">Ideal for professionals who meet: Ask your counsellor for eligibility criteria.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Learning Format</div>
-            <p class="detail-text">Online, Offline or Any &mdash; choose what fits your schedule.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Career Outcomes</div>
-            <p class="detail-text">Strategic Management, Business Leadership, Entrepreneurship and General Management roles.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Certification</div>
-            <p class="detail-text">Awarded directly by Golden Gate University on successful completion.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Fee &amp; Financing</div>
-            <p class="detail-text">Shared during your free counselling session &mdash; instalment options vary by institution.</p>
-          </div>
-          <div class="course-detail-row">
-            <div class="detail-label">Admission Process</div>
-            <p class="detail-text">Submit details &rarr; eligibility assessment &rarr; counsellor call &rarr; complete admission. See How It Works below.</p>
-          </div>
+          <button class="btn-orange course-apply" type="button">Get Your Free Counselling</button>
         </div>
       </div>
     </div>
@@ -1737,9 +872,6 @@
         </div>
         <div class="inst-card">
           <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">IIIT Bangalore</div>
-        </div>
-        <div class="inst-card">
-          <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">IIM Kozhikode</div>
         </div>
         <div class="inst-card">
           <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:13.5px; color:var(--white); line-height:1.3;">Liverpool John Moores University</div>
@@ -2075,18 +1207,7 @@
     });
   });
 
-  // Course detail toggle
-  document.querySelectorAll('.course-toggle').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var card = btn.closest('.course-card');
-      var details = card.querySelector('.course-details');
-      var isHidden = details.hidden;
-      details.hidden = !isHidden;
-      btn.textContent = isHidden ? 'Hide Details' : 'View Full Details';
-    });
-  });
-
-  // Course card "Apply Now" -> scroll to lead form and pre-select the program
+  // Course card "Get Your Free Counselling" -> scroll to lead form and pre-select the program
   document.querySelectorAll('.course-apply').forEach(function(btn){
     btn.addEventListener('click', function(){
       var card = btn.closest('.course-card');
