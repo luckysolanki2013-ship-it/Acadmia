@@ -246,15 +246,15 @@
   <div style="background:linear-gradient(120deg, var(--navy), var(--deep)); padding:40px 40px;">
     <div class="stats-row" style="max-width:1160px; margin:0 auto;">
       <div style="display:flex; flex-direction:column; gap:4px; align-items:center; text-align:center;">
-        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">15K+</div>
+        <div class="stat-counter" data-count-target="15" data-count-suffix="K+" style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">15K+</div>
         <div style="font-size:13px; color:#C7D6E8;">Professionals Enrolled</div>
       </div>
       <div style="display:flex; flex-direction:column; gap:4px; align-items:center; text-align:center;">
-        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">50+</div>
+        <div class="stat-counter" data-count-target="50" data-count-suffix="+" style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">50+</div>
         <div style="font-size:13px; color:#C7D6E8;">Certification Courses</div>
       </div>
       <div style="display:flex; flex-direction:column; gap:4px; align-items:center; text-align:center;">
-        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">20+</div>
+        <div class="stat-counter" data-count-target="20" data-count-suffix="+" style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--white);">20+</div>
         <div style="font-size:13px; color:#C7D6E8;">Leading Institutions</div>
       </div>
       <div style="display:flex; flex-direction:column; gap:4px; align-items:center; text-align:center;">
@@ -1118,7 +1118,7 @@
           </select>
         </div>
         <button class="btn-orange" type="submit" style="background:var(--orange); color:var(--white); border:none; font-weight:600; font-size:15px; padding:14px 20px; border-radius:9px; cursor:pointer; width:100%;">Get Free Counselling</button>
-        <div style="text-align:left; font-size:11.5px; color:var(--sub);"><span style="text-decoration:line-through; opacity:0.7;">&#8377;5,000/-</span> per session &mdash; FREE for a limited time</div>
+        <div style="text-align:left; font-size:11.5px; color:var(--sub);"><span style="text-decoration:line-through; opacity:0.7;">&#8377;5,000/- per session</span> &mdash; FREE for a limited time</div>
       </form>
     </div>
   </div>
@@ -1385,6 +1385,43 @@
     inputEl.addEventListener('keydown', function(e){
       if (e.key === 'Enter') { e.preventDefault(); handleSend(); }
     });
+  })();
+
+  // Stats band counter animation: numbers count up from 0 the first time they scroll into view.
+  (function(){
+    var counters = document.querySelectorAll('.stat-counter');
+    if (!counters.length || !('IntersectionObserver' in window)) return;
+
+    function animateCounter(el){
+      var target = parseFloat(el.getAttribute('data-count-target'));
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+      var duration = 1200;
+      var startTime = null;
+      function step(timestamp){
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+      el.textContent = '0' + suffix;
+      window.requestAnimationFrame(step);
+    }
+
+    var statsIo = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function(el){ statsIo.observe(el); });
   })();
 
   // Dim the chat bubble whenever it would sit on top of a primary CTA button (e.g. a
